@@ -1,0 +1,7 @@
+{
+  "name": "monAmiPoto",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
