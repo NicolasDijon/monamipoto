@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{title}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row>
+    <ion-col size-md="6" offset-md='3' size-xs="12">
+      <ion-card>
+        <ion-card-title class="ion-text-center margin-top"
+          >Connexion</ion-card-title
+        >
+        <form [formGroup]="authenticationForm">
+          <ion-card-content>
+            <ion-item class="no-background">
+              <ion-label position="floating">Email</ion-label>
+              <ion-input formControlName="email" type="email"></ion-input>
+            </ion-item>
+            <p *ngIf="message === 'Email inconnu'" class="message margin-left">
+              {{message}}
+            </p>
+
+            <ion-item class="no-background margin-bottom">
+              <ion-label position="floating">Mot de passe</ion-label>
+              <ion-input formControlName="password" type="password"></ion-input>
+            </ion-item>
+            <p
+              *ngIf="message === 'Mot de passe incorrect'"
+              class="message margin-left"
+            >
+              {{message}}
+            </p>
+
+            <ion-item class="no-background" lines="none">
+              <ion-button
+                size="medium"
+                slot="end"
+                color="success"
+                (click)="onSubmitAuthenticationForm()"
+                [disabled]="!authenticationForm.valid"
+                >Valider</ion-button
+              >
+            </ion-item>
+          </ion-card-content>
+        </form>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-content>
